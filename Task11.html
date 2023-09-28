@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-11</title>
+    <style>
+        div{
+            line-height: 50px;
+            position: absolute;
+            left: 35%;
+        }
+        label{
+            margin-right: 20px;
+            font-weight: bolder;
+        }
+        span{
+            margin-left: 10px;
+            color: red;
+        }
+        
+    </style>
+    <script>
+        function verify(){
+            var name=document.getElementById("name");
+            if(name.value.length==0){
+                document.getElementById("nameErr").innerHTML="This field is required";
+                name.style.border="2px solid red";
+            }
+            else{
+                document.getElementById("nameErr").innerHTML="";
+                name.style.border="1px solid black";
+            }
+            var email=document.getElementById("email");
+            const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+            if(!emailRegex.test(email.value)){
+                document.getElementById("emailErr").innerHTML="A Valid email address is required";
+                email.style.border="2px solid red";
+            }
+            else{
+                document.getElementById("emailErr").innerHTML="";
+                email.style.border="1px solid black";
+            }
+            var url=document.getElementById("url");
+            const webRegex = /^(www\.)?([a-zA-Z0-9-]+\.[a-zA-Z]{2,})(\/\S*)?$/;
+            if(!webRegex.test(url.value)){
+                document.getElementById("websiteErr").innerHTML="A valid URL is required";
+                url.style.border="2px solid red";
+            }
+            else{
+                document.getElementById("websiteErr").innerHTML="";
+                url.style.border="1px solid black";
+            }
+            var mess=document.getElementById("message"); 
+            if(mess.value==""){
+                document.getElementById("messErr").innerHTML="This field is required";
+                mess.style.border="2px solid red";
+            }
+            else{
+                document.getElementById("messErr").innerHTML="";
+                mess.style.border="1px solid black";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <table>
+        <form action="">
+            <tr>
+            <td><label for="">Name:</label></td>
+            <td><input type="text" id="name" class="i1"> </td><td><span id="nameErr"></span></td>
+            </tr>
+            <tr>
+            <td><label for="">Email:</label></td>
+            <td><input type="text" id="email" class="i1"></td> <td><span id="emailErr"></span></td>
+            </tr>
+            <tr>
+            <td><label for="">Website:</label></td>
+            <td><input type="url" id="url" class="i1"></td><td><span id="websiteErr"></span></td>
+            </tr>
+            <tr>
+            <td style="padding-top: 2px;"><label for="">Message:</label></td>
+            <td><textarea cols="20" rows="5" id="message" class="i1"></textarea></td><td><span id="messErr"></span></td>
+            </tr>
+            <tr><td colspan="2" style="padding-left:30px;">
+            <input type="button" onclick="verify()" value="submit"></td>
+            </tr>
+        </form>
+        </table>
+    </div>
+</body>
+</html>

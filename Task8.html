@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-8</title>
+    <script>
+        function Evaluate(){
+            var strng=document.getElementById("val").value;
+            var str=strng.split("");
+            var result=str.sort().join("");
+            document.getElementById("result").innerHTML=result;        
+        }
+    </script>
+    <style>
+        div{
+            position: absolute;
+            top:15%;
+            left: 35%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form action="">
+            <label for="">Enter the string :</label>
+            <input type="text" id="val"><br />
+            <p>Alphabetical order : <span id="result"></span></p>
+            <input type="button" onclick="Evaluate()" value="Reverse">
+        </form>
+    </div>
+</body>
+</html>
